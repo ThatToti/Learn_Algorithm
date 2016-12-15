@@ -158,7 +158,221 @@ function removeWithoutCopy(arr, item) {
 
 
 
+5.在数组 arr 末尾添加元素 item。不要直接修改数组 arr，结果返回新的数组
 
+##### **输入例子:**
+
+```
+append([1, 2, 3, 4],  10)
+```
+
+##### **输出例子:**
+
+```
+[1, 2, 3, 4, 10]
+```
+
+**解** 
+
+```js
+function append(arr, item) {
+	var res=[];
+    for(var i=0;i<arr.length;i++){
+    	res[i]=arr[i];
+    }
+    res.push(item);
+    return res;
+}
+```
+
+这道题真心没什么好讲的，so easy。。。
+
+
+
+6.删除数组 arr 最后一个元素。不要直接修改数组 arr，结果返回新的数组
+
+##### **输入例子:**
+
+```
+truncate([1, 2, 3, 4])
+```
+
+##### **输出例子:**
+
+```
+[1, 2, 3]
+```
+
+**解** 
+
+```js
+function truncate(arr) {
+	var res=[];
+    for(var i=0;i<arr.length;i++){
+    	res[i]=arr[i];
+    }
+    res.pop();
+    return res;
+}
+```
+
+上两道题就是简单的pop&push运算，可能还有什么shift&unshift的，就是操作数组头。不直接在数组里操作就`var res=[];` 建一个新的数组存数据
+
+
+
+7.在数组 arr 开头添加元素 item。不要直接修改数组 arr，结果返回新的数组
+
+##### **输入例子:**
+
+```
+prepend([1, 2, 3, 4], 10)
+```
+
+##### **输出例子:**
+
+```
+[10, 1, 2, 3, 4]
+```
+
+**解** 
+
+```js
+function prepend(arr, item) {
+	var res=[];
+    for(var i=0;i<arr.length;i++){
+    	res[i]=arr[i];
+    }
+    res.unshift(item);
+    return res;
+}
+```
+
+
+
+8.删除数组 arr 第一个元素。不要直接修改数组 arr，结果返回新的数组
+
+##### **输入例子:**
+
+```
+curtail([1, 2, 3, 4])
+```
+
+##### **输出例子:**
+
+```
+[2, 3, 4]
+```
+
+**解** 
+
+```js
+function curtail(arr) {
+	var res=[];
+    for(var i=0;i<arr.length;i++){
+    	res[i]=arr[i];
+    }
+    res.shift();
+    return res;
+}
+```
+
+shift&unshift的简单运用，不多说
+
+
+
+9.合并数组 arr1 和数组 arr2。不要直接修改数组 arr，结果返回新的数组
+
+##### **输入例子:**
+
+```
+concat([1, 2, 3, 4], ['a', 'b', 'c', 1])
+```
+
+##### **输出例子:**
+
+```
+[1, 2, 3, 4, 'a', 'b', 'c', 1]
+```
+
+**解** 
+
+```js
+function concat(arr1, arr2) {
+    var res=[],
+    	k=0;
+    for(var i=0;i<arr1.length;i++){
+		res[k++]=arr1[i];
+    }
+    for(var j=0;j<arr2.length;j++){
+    	res[k]=arr2[j];
+        k++;
+    }
+    return res;
+}
+```
+
+这里不用使用concat，因为已经被重写了。同时这里不能应用去重，因为concat的意思就是连接，去重了，就不是两个数组连接的意思，而是合并。
+
+
+
+10.在数组 arr 的 index 处添加元素 item。不要直接修改数组 arr，结果返回新的数组
+
+##### **输入例子:**
+
+```
+insert([1, 2, 3, 4], 'z', 2)
+```
+
+##### **输出例子:**
+
+```
+[1, 2, 'z', 3, 4]
+```
+
+**解**
+
+```js
+function insert(arr, item, index) {
+	var res=[];
+    for(var i=0;i<arr.length;i++){
+		res[i]=arr[i];
+    }
+    res.splice(index,0,item);
+    return res;
+}
+```
+
+splice的又一运用，`splice（index，deleteCount，newitem[,item2[...]]）`  当`deleteCount` 为0，则不删除，如果后面还有item项，就新增item项
+
+
+
+11.统计数组 arr 中值等于 item 的元素出现的次数
+
+##### **输入例子:**
+
+```
+count([1, 2, 4, 4, 3, 4, 3], 4)
+```
+
+##### **输出例子:**
+
+```
+3
+```
+
+**解** 
+
+```js
+function count(arr, item) {
+	var count=0;
+    for(var i=0;i<arr.length;i++){
+		if(item==arr[i]){
+			count++;
+        }
+    }
+    return count;
+}
+```
 
 
 
